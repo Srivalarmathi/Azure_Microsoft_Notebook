@@ -1,0 +1,10 @@
+#Convert JSON to JSONL
+import json
+
+with open('test1.json') as f:
+  data = json.load(f)
+
+with open('out1.jsonl', 'w') as outfile:
+    for entry in data:
+        json.dump(entry, outfile)
+        outfile.write('\n')
