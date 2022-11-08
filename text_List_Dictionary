@@ -1,0 +1,23 @@
+#Python script to convert the text file to List then to Dictionary
+import re
+ 
+
+with open('Boundary_Dispute_1st_pg.txt') as f:
+
+   all_text = f.read().replace('\n', '')
+
+   result = re.findall('Appeal Reason(.*?)UKPC',all_text )
+
+   # it missed the last case out 
+   for i in range(len(result)):
+    print(result[i])
+   l = len(result)
+     
+   print("*****************")
+
+   for j in range(len(result)):
+    #dictOfWords = {"text": j for j in result}
+    dictOfWords =  {"text": result[j]}
+    print(dictOfWords)
+   d= len(dictOfWords)
+   print("****************************")
