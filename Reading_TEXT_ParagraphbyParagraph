@@ -1,0 +1,17 @@
+import logging
+import jsonlines
+import gensim
+from gensim.summarization import summarize
+import re
+import gensim
+from gensim.summarization import summarize
+docs = open("Genuine_customer_appealbox (1).txt")
+data = docs.read()
+##short_summary = summarize(data)
+#print(short_summary)
+with open("Genuine_customer_appealbox (1).txt", "r") as paragraphs_file:
+   for paragraph in paragraphs_file: #one line until the end of file
+       if paragraph != "\n":
+          docs = paragraph
+          print(docs)
+          print("*************")
