@@ -1,0 +1,32 @@
+#Extract paragraph by paragraph and do text summarization by luhn_summarizer technique
+import jsonlines
+import gensim
+from gensim.summarization import summarize
+import re
+import gensim
+from gensim.summarization import summarize
+from sumy.summarizers.luhn import LuhnSummarizer
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.parsers.plaintext import PlaintextParser
+docs = open("Genuine_customer_appealbox (1).txt")
+data = docs.read()
+##short_summary = summarize(data)
+#print(short_summary)
+with open("Genuine_customer_appealbox (1).txt", "r") as paragraphs_file:
+   for paragraph in paragraphs_file: #one line until the end of file
+       if paragraph != "\n":
+          docs = paragraph
+          print(docs)
+          print("*************")
+          #data = docs.read()
+          #short_summary = summarize(docs)
+          #print(short_summary)
+          #print(data)
+          #print("***********")
+          parser=PlaintextParser.from_string(docs,Tokenizer('english'))
+          luhn_summarizer=LuhnSummarizer()
+          luhn_summary=luhn_summarizer(parser.document,sentences_count=3)
+
+           # Printing the summary
+          for sentence in luhn_summary:
+           print(sentence)
