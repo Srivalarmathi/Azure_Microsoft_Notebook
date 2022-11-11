@@ -1,0 +1,21 @@
+#Getting only text from the JSONL
+import jsonlines
+import re
+import gensim
+from gensim.summarization import summarize
+with jsonlines.open('output1.jsonl') as reader:
+    for obj in reader:
+        textonly = re.sub("[^a-zA-Z]", " ",str(obj))
+        print(textonly)
+#Gensim Text Summarization
+import jsonlines
+import gensim
+from gensim.summarization import summarize
+import re
+import gensim
+from gensim.summarization import summarize
+docs = open("Genuine_customer_appealbox (1).txt")
+data = docs.read()
+short_summary = summarize(data)
+print(short_summary)
+
